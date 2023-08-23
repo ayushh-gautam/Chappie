@@ -85,3 +85,4 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
+// welcome page ui portion completed

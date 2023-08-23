@@ -18,10 +18,12 @@ class MyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-    
       text,
-      style:
-          TextStyle(color: color, fontSize: fontsize, fontWeight: fontWeight),
+      style: TextStyle(
+        color: color,
+        fontSize: fontsize,
+        fontWeight: fontWeight,
+      ),
     );
   }
 }
