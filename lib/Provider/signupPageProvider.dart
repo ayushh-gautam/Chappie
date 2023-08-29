@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../WIdgets/myText.dart';
+import '../Database/userRepo.dart';
+import 'authentications/googleAuth.dart';
 
 class SignUpPageProvider with ChangeNotifier {
   final _emailController = TextEditingController();
@@ -16,6 +18,23 @@ class SignUpPageProvider with ChangeNotifier {
 
   final _confirmPass = TextEditingController();
   TextEditingController get confirmPass => _confirmPass;
+
+  void googleLogin(context) {
+    GoogleSignin().signinWithGoogle().then((value) async {
+      if (value != null) {
+        if (await UserRepo.userexist()) {
+          //   UserRepo.userInfo();
+          Navigator.pop(context);
+          Navigator.pop(context);
+        } else {
+          await UserRepo.createusers();
+          //   UserRepo.userInfo();
+          Navigator.pop(context);
+          Navigator.pop(context);
+        }
+      }
+    });
+  }
 
   void signUp(context) async {
     showDialog(

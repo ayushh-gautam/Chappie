@@ -72,11 +72,16 @@ class SignupPage extends StatelessWidget {
                 ),
               ),
               Center(
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Image.asset(
-                    'lib/assets/google.png',
-                    height: screenHeight * 0.05,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: screenHeight * 0.03),
+                  child: GestureDetector(
+                    onTap: () {
+                      _signupProvider.googleLogin(context);
+                    },
+                    child: Image.asset(
+                      'lib/assets/google.png',
+                      height: screenHeight * 0.05,
+                    ),
                   ),
                 ),
               ),
